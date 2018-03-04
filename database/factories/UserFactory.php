@@ -13,11 +13,14 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(App\Models\UserModel::class, function (Faker $faker) {
+  $faker = \Faker\Factory::create('fr_FR');
+
   return [
     'firstname' => $faker->firstName,
     'lastname' => $faker->lastName,
     'email' => $faker->unique()->safeEmail,
+    'phone' => $faker->unique()->mobileNumber,
     'password' => $faker->password,
     'created_at' => $faker->dateTime(),
     'updated_at' => $faker->dateTime()

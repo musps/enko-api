@@ -14,7 +14,7 @@ class FormRequestUtil extends FormRequest
     {
         $re = new ApiControllerUtil;
         throw new HttpResponseException(
-            $re->sendError($validator->errors())
+            $re->sendError(null, $validator->errors())
         );
     }
 

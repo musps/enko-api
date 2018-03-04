@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Validator::extend('mobile_phone_fr', function ($attribute, $value, $parameters, $validator) {
+            $pattern = '/^0[6|7][0-9]{8}$/';
+            return preg_match($pattern, $value, $output);
+        });
     }
 
     /**

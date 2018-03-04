@@ -27,7 +27,11 @@ class UserRegister extends FormRequestUtil
     public function rules()
     {
         return [
-            'username' => 'required'
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|email|unique:user,email',
+            'phone' => 'required|mobile_phone_fr|unique:user,phone',
+            'password' => 'required|between:6,20'
         ];
     }
 

@@ -14,13 +14,19 @@ class User extends Migration
     public function up()
     {
         Schema::create('user', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->collation = 'utf8_general_ci';
+
             $table->increments('id');
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('email')->unique();
+            //$table->string('email')->unique();
+            //$table->string('phone')->unique();
+            $table->string('email');
+            $table->string('phone');
             $table->string('password');
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

@@ -20,7 +20,7 @@ class UserModel extends Model
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'password',
+        'firstname', 'lastname', 'email', 'phone', 'password',
     ];
 
     /**
@@ -30,4 +30,10 @@ class UserModel extends Model
      */
     protected $hidden = [
     ];
+
+    public function oui() 
+    {
+        return 'ok';
+    }
+
 }
