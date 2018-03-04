@@ -110,6 +110,7 @@ return [
 
     'jwt_secret' => env('JWT_SECRET', ''),
     'jwt_algo' => env('JWT_ALGO', ''),
+    'jwt_duration' => env('JWT_DURATION', 60),
 
     /*
     |--------------------------------------------------------------------------

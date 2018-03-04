@@ -4,9 +4,15 @@ namespace App\Utils;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
-class ApiControllerUtil extends Controller
+class ApiControllerUtil extends BaseController
 {
+
+    use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function sendResponse($result, $message)
     {
@@ -27,7 +33,7 @@ class ApiControllerUtil extends Controller
             'message' => $error,
         ];
 
-        if(! empty($errorMessages)) {
+        if (! empty($errorMessages)) {
             $response['data'] = $errorMessages;
         }
 

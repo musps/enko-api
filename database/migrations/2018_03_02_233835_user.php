@@ -27,6 +27,7 @@ class User extends Migration
             $table->string('password');
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
+            $table->boolean('enable');
         });
     }
 

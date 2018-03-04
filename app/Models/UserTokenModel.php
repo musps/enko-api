@@ -4,15 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserModel extends Model
+class UserTokenModel extends Model
 {
+    public $timestamps = false;
 
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'user';
+    protected $table = 'user_token';
 
     /**
      * The attributes that are mass assignable.
@@ -20,7 +21,7 @@ class UserModel extends Model
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'email', 'phone', 'password', 'enable',
+        'user', 'key', 'created_at'
     ];
 
     /**
@@ -29,12 +30,6 @@ class UserModel extends Model
      * @var array
      */
     protected $hidden = [
-        'password'
     ];
-
-    public function oui() 
-    {
-        return 'ok';
-    }
 
 }
