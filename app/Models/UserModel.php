@@ -29,12 +29,6 @@ class UserModel extends Model
      * @var array
      */
     protected $hidden = [
-        'password'
     ];
-
-    public function oui() 
-    {
-        return 'ok';
-    }
 
 }

@@ -22,4 +22,10 @@ Route::prefix('user')->group(function ()
     Route::get('/findById/{id}', 'UserController@findById')
         ->where('id', '[0-9]+')
         ->middleware('checkBearerToken');
+    Route::get('/me', 'UserController@me')
+        ->middleware('checkBearerToken');
+
+    Route::post('/me/update', 'UserController@meUpdate')
+      ->middleware('checkBearerToken');
+
 });
